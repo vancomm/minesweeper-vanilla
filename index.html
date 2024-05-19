@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script async type="module" src="assets/js/index.js"></script>
+    <style>
+        html, body {
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #play-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form id="play-form">
+            <label for="width">Width: <input type="number" name="width" id="width" required=""></label>
+            <label for="height">Height: <input type="number" name="height" id="height" required=""></label>
+            <button type="submit">Play!</button>
+        </form>
+    </main>
+</body>
+</html>

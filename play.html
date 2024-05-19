@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script async="" type="module" src="assets/js/play.js"></script>
+    <style>
+        html,
+        body {
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game-field {}
+
+        .cell {
+            width: var(--cell-size);
+            height: var(--cell-size);
+            background-size: 100%;
+        }
+
+        .cell[data-state="up"] {
+            background-image: url("assets/svg/cells/WinmineXP/cellup.svg");
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="game-container">
+            <div id="game-info"></div>
+            <div id="game-field"></div>
+        </div>
+    </main>
+</body>
+
+</html>
