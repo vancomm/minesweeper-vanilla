@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/css/index.css">
     <script async="" type="module" src="assets/js/play.js"></script>
     <style>
         html,
@@ -21,16 +22,28 @@
             align-items: center;
         }
 
-        #game-field {}
+        #game-field {
+            width: calc(var(--width) * var(--cell-size));
+            height: calc(var(--height) * var(--cell-size));
+        }
 
         .cell {
             width: var(--cell-size);
             height: var(--cell-size);
             background-size: 100%;
+            float: left;
         }
 
         .cell[data-state="up"] {
             background-image: url("assets/svg/cells/WinmineXP/cellup.svg");
+        }
+
+        .cell[data-state="down"] {
+            background-image: url("assets/svg/cells/WinmineXP/celldown.svg");
+        }
+
+        .cell[data-state="open"][data-bombs="0"] {
+            background-image: url("assets/svg/cells/WinmineXP/celldown.svg");
         }
     </style>
 </head>
