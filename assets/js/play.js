@@ -41,7 +41,7 @@ function getRandomSample(arr, size) {
         shuffled[index] = shuffled[i]
         shuffled[i] = temp
     }
-    return shuffled.slice(0, size);
+    return shuffled.slice(0, size)
 }
 
 /** 
@@ -52,7 +52,7 @@ function getRandomSample(arr, size) {
 function generateField(height, width, bombs) {
     const bombIdxs = getRandomSample(
         [...Array.from(
-            { length: height * width }, 
+            { length: height * width },
             (_, i) => i
         )],
         bombs
@@ -63,7 +63,7 @@ function generateField(height, width, bombs) {
             { length: width },
             (_, j) => bombIdxs.includes(i * 10 + j)
         )]
-    )];    
+    )]
     return cells
 }
 
@@ -76,7 +76,7 @@ const gameContainer = document.getElementById("game-container")
 const gameInfoContainer = document.getElementById("game-info")
 
 /** @type {HTMLDivElement} */
-const gameField = document.getElementById("game-field")
+const gameBoard = document.getElementById("game-board")
 
 function main() {
     const params = parseParams()
@@ -103,29 +103,29 @@ function main() {
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
             const cell = document.createElement('div')
-            
+
             cell.classList.add("cell")
             cell.dataset["state"] = "up"
 
             cell.onpointerdown = function () {
-                console.log("cell onpointerdown");
+                console.log("cell onpointerdown")
                 if (this.dataset["state"] === "up") {
                     this.dataset["state"] = "down"
                 }
             }
-            cell.onpointerup = function () { 
-                console.log("cell onpointerup");
+            cell.onpointerup = function () {
+                console.log("cell onpointerup")
                 if (this.dataset["state"] === "down") {
                     this.dataset["state"] = "up"
                 }
             }
             cell.onclick = function () {
-                console.log("cell onclick");
+                console.log("cell onclick")
                 this.dataset["state"] = "open"
                 this.dataset["bombs"] = "0"
             }
-            
-            gameField.appendChild(cell)
+
+            gameBoard.appendChild(cell)
         }
     }
 
