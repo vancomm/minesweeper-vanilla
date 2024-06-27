@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/game.css">
+    <title>Mines</title>
+    <script type="module" src="assets/js/game.js"></script>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, .95);
+            color: white;
+        }
+
+        main {
+            width: max-content;
+        }
+
+        .settings {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(3, 3rem 4rem) 4rem;
+            column-gap: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form id="settings" class="settings">
+            <label for="width">Width</label>
+            <input type="number" name="cols" id="width" value="16" required="">
+            <label for="height">Height</label>
+            <input type="number" name="rows" id="height" value="16" required="">
+            <label for="mines">Mines</label>
+            <input type="number" name="mines" id="mines" value="40" required="">
+            <button type="submit">Start</button>
+        </form>
+
+        <div id="game-container">
+            <div class="border top-left"></div>
+            <div class="border top"></div>
+            <div class="border top-right"></div>
+
+            <div class="info border left"></div>
+            <div class="info-wrapper">
+                <div class="timer pull-left counter">
+                    <div class="counter-left"></div>
+                    <div class="number" data-number="1"></div>
+                    <div class="number" data-number="2"></div>
+                    <div class="number" data-number="3"></div>
+                    <div class="counter-right"></div>
+                </div>
+                <div class="mines pull-right counter">
+                    <div class="counter-left"></div>
+                    <div class="number" data-number="1"></div>
+                    <div class="number" data-number="2"></div>
+                    <div class="number" data-number="3"></div>
+                    <div class="counter-right"></div>
+                </div>
+                <div id="face-button" class="face-wrapper">
+                    <div id="face" class="face" data-state="smile" data-down="false"></div>
+                </div>
+            </div>
+            <div class="info border right"></div>
+
+            <div class="border mid-left"></div>
+            <div class="border mid"></div>
+            <div class="border mid-right"></div>
+
+            <div class="board border left"></div>
+            <div id="game-board" class="board-cells">
+            </div>
+            <div class="board border right"></div>
+
+            <div class="border bottom-left"></div>
+            <div class="border bottom"></div>
+            <div class="border bottom-right"></div>
+        </div>
+    </main>
+</body>
+
+</html>

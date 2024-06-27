@@ -1,0 +1,267 @@
+.flex {
+    display: flex;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+#game-container {
+    /* set via script */
+    --width: 24px;
+    --height: 24px;
+    --rows: 16;
+    --cols: 16;
+
+    --x-left-border: calc(0.75 * var(--width));
+    --x-inner: calc(var(--cols) * var(--width));
+    --x-right-border: calc(0.5625 * var(--width));
+
+    --y-top-border: calc(0.75 * var(--height));
+    --y-mid-border: calc(0.9375 * var(--height));
+    --y-bottom-border: calc(0.5625 * var(--height));
+    --y-thin: calc(0.75 * var(--height));
+    --y-panel: 48px;
+    --y-inner: calc(var(--rows) * var(--height));
+    --y-full: calc(var(--y-thin) * 3 + var(--y-panel) + var(--y-inner));
+
+    display: grid;
+    grid-template-columns: 
+        var(--x-left-border) var(--x-inner) var(--x-right-border);
+    grid-template-rows: 
+        var(--y-top-border) 
+        var(--y-panel) 
+        var(--y-mid-border)
+        var(--y-inner)
+        var(--y-bottom-border);
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--width));
+    grid-template-rows: repeat(var(--rows), var(--height));
+}
+
+.border.top-left {
+    background-image: url("../svg/border/WinmineXP/topleft.svg");
+    background-size: 100% 100%;
+}
+
+.border.top {
+    background-image: url("../svg/border/WinmineXP/top.svg");
+    background-size: 100% 100%;
+}
+
+.border.mid {
+    background-image: url("../svg/border/WinmineXP/middle.svg");
+    background-size: 100% 100%;
+    /* background-size: 100% 115%; */
+    /* background-position-y: -20px; */
+}
+
+.border.top-right {
+    background-image: url("../svg/border/WinmineXP/topright.svg");
+    background-size: 100% 100%;
+}
+
+.border.mid-left {
+    background-image: url("../svg/border/WinmineXP/middleleft.svg");
+    background-size: 100% 100%;
+}
+
+.border.mid-right {
+    background-image: url("../svg/border/WinmineXP/middleright.svg");
+    background-size: 100% 100%;
+}
+
+.border.left {
+    background-image: url("../svg/border/WinmineXP/left.svg");
+    background-size: 100% 100%;
+}
+
+.border.right {
+    background-image: url("../svg/border/WinmineXP/right.svg");
+    background-size: 100% 100%;
+}
+
+.border.bottom-left {
+    background-image: url("../svg/border/WinmineXP/bottomleft.svg");
+    background-size: 100% 100%;
+}
+
+.border.bottom-right {
+    background-image: url("../svg/border/WinmineXP/bottomright.svg");
+    background-size: 100% 100%;
+}
+
+.border.bottom {
+    background-image: url("../svg/border/WinmineXP/bottom.svg");
+    background-size: 100% 100%;
+}
+
+.cell {
+    float: left;
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+}
+
+.cell[data-down="false"] {
+    background-image: url("../svg/cells/WinmineXP/cellup.svg");
+}
+
+.cell[data-down="true"] {
+    background-image: url("../svg/cells/WinmineXP/celldown.svg");
+}
+
+.cell[data-covered="false"][data-mines="0"] {
+    background-image: url("../svg/cells/WinmineXP/celldown.svg");
+}
+
+.cell[data-covered="false"][data-mines="1"] {
+    background-image: url("../svg/cells/WinmineXP/cell1.svg");
+}
+
+.cell[data-covered="false"][data-mines="2"] {
+    background-image: url("../svg/cells/WinmineXP/cell2.svg");
+}
+
+.cell[data-covered="false"][data-mines="3"] {
+    background-image: url("../svg/cells/WinmineXP/cell3.svg");
+}
+
+.cell[data-covered="false"][data-mines="4"] {
+    background-image: url("../svg/cells/WinmineXP/cell4.svg");
+}
+
+.cell[data-covered="false"][data-mines="5"] {
+    background-image: url("../svg/cells/WinmineXP/cell5.svg");
+}
+
+.cell[data-covered="false"][data-mines="6"] {
+    background-image: url("../svg/cells/WinmineXP/cell6.svg");
+}
+
+.cell[data-covered="false"][data-mines="7"] {
+    background-image: url("../svg/cells/WinmineXP/cell7.svg");
+}
+
+.cell[data-covered="false"][data-mines="8"] {
+    background-image: url("../svg/cells/WinmineXP/cell8.svg");
+}
+
+.cell[data-covered="false"][data-mined="true"] {
+    background-image: url("../svg/cells/WinmineXP/cellmine.svg");
+}
+
+.info-wrapper, 
+.info-wrapper * {
+    /* outline: 1px solid red;  */
+    outline-offset: -1px;
+}
+
+.info-wrapper {
+    padding: 4.5px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    background-color: silver;
+}
+
+.counter {
+    width: 61.5px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../svg/border/WinmineXP/countermiddle.svg");
+    background-size: 100% 100%;
+    background-color: black;
+}
+
+.number {
+    width: calc(0.8125 * var(--width));
+    height: calc(1.4375 * var(--height));
+    background-size: 100% 100%;
+}
+
+.number[data-number="0"] {
+    background-image: url("../svg/counter/Winmine XP/counter0.svg");
+}
+
+.number[data-number="1"] {
+    background-image: url("../svg/counter/Winmine XP/counter1.svg");
+}
+
+.number[data-number="2"] {
+    background-image: url("../svg/counter/Winmine XP/counter2.svg");
+}
+
+.number[data-number="3"] {
+    background-image: url("../svg/counter/Winmine XP/counter3.svg");
+}
+
+.number[data-number="4"] {
+    background-image: url("../svg/counter/Winmine XP/counter4.svg");
+}
+
+.number[data-number="5"] {
+    background-image: url("../svg/counter/Winmine XP/counter5.svg");
+}
+
+.number[data-number="6"] {
+    background-image: url("../svg/counter/Winmine XP/counter6.svg");
+}
+
+.number[data-number="7"] {
+    background-image: url("../svg/counter/Winmine XP/counter7.svg");
+}
+
+.number[data-number="8"] {
+    background-image: url("../svg/counter/Winmine XP/counter8.svg");
+}
+
+.number[data-number="9"] {
+    background-image: url("../svg/counter/Winmine XP/counter9.svg");
+}
+
+.number[data-number="-"] {
+    background-image: url("../svg/counter/Winmine XP/counter-.svg");
+}
+
+.counter-left {
+    width: calc(0.0625 * var(--width));
+    height: calc(1.5625 * var(--height));
+    background-image: url("../svg/border/WinmineXP/counterleft.svg");
+    background-size: 100% 100%;
+}
+
+.counter-right {
+    width: calc(0.0625 * var(--width));
+    height: calc(1.5625 * var(--height));
+    background-image: url("../svg/border/WinmineXP/counterright.svg");
+    background-size: 100% 100%;
+}
+
+.face-wrapper {
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.face {
+    margin: 0 auto;
+    width: calc(1.625 * var(--width));
+    height: calc(1.625 * var(--height));
+    background-size: 100% 100%;
+}
+
+.face[data-state="smile"] {
+    background-image: url("../svg/faces/Winmine XP/smileface.svg");
+}
+
+.face[data-down="true"] {
+    background-image: url("../svg/faces/Winmine XP/smilefacedown.svg");
+}
